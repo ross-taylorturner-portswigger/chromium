@@ -902,7 +902,7 @@ const base::FeatureParam<std::string> kAutofillOverridePredictionsJson{
 // i.e., https://other.autofill.server:port/tbproxy/af/
 BASE_FEATURE(kAutofillServerCommunication,
              "AutofillServerCommunication",
-             base::FEATURE_ENABLED_BY_DEFAULT);
+             base::FEATURE_DISABLED_BY_DEFAULT);
 
 // Enables showing DOM Node ID of elements.
 BASE_FEATURE(kShowDomNodeIDs,
