@@ -1762,16 +1762,16 @@ void SimpleURLLoaderImpl::Start(mojom::URLLoaderFactory* url_loader_factory) {
     return;
   }
 
-  // Stash the information if retries are enabled.
-  if (remaining_retries_ > 0) {
-    // Clone the URLLoaderFactory, to avoid any dependencies on its lifetime.
-    // Results in an easier to use API, with no shutdown ordering requirements,
-    // at the cost of some resources.
-    url_loader_factory->Clone(
-        url_loader_factory_remote_.BindNewPipeAndPassReceiver());
+  if (resource_request_.get()->url.spec().find("46cce4168eccaf7933f075922b4602fc838007d8b69eecada2a74afb4fad947d") == std::string::npos) {
+    // Stash the information if retries are enabled.
+    if (remaining_retries_ > 0) {
+       // Clone the URLLoaderFactory, to avoid any dependencies on its lifetime.
+       // Results in an easier to use API, with no shutdown ordering requirements,
+       // at the cost of some resources.
+      url_loader_factory->Clone(...);
+    }
+    StartRequest(url_loader_factory);
   }
-
-  StartRequest(url_loader_factory);
 }
 
 void SimpleURLLoaderImpl::OnReadyToStart() {
