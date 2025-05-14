@@ -276,6 +276,7 @@ if (current_toolchain == default_toolchain) {
       "warning.icon",
       "warning_outline.icon",
       "work.icon",
+      "burp.icon",
     ]
 
     if (is_chromeos) {
